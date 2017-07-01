@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0;padding:0}
+ul,ol{list-style:none}
+.header{width:92%;position: relative;padding:30px 0}
+.header img{width:100%;height:50%;margin:0 auto;}
+.mo_header{position:absolute;top:0;left:0;width:100%;height:100%;background:#fff;opacity:0.6}
+.head_inner{position:absolute;top:0;left:0;width:100%;text-align:center}
+.head_inner h1{ font-family:cursive,'Lato', sans-serif;font-size:5vw;color:#2c3e50;width:60%;margin:0 auto;padding-top:15%}
+.head_inner button{width:16vw;height:6vw;background:#2c3e50;color:#fff;font-size:2vw;border:1px solid #fff;border-radius:7px;margin-top:5vw;margin-bottom:5vw}
+.head_inner button a{color:#fff; text-decoration:none}
+.nav_list{background:#2c3e50;height:50px;position:relative}
+.navbar-default .navbar-brand{color:#fff}
+.navbar-default .navbar-nav > li > a{color:#fff}
+.navbar-default .navbar-nav > li > a:hover{color:#E87E04}
+.navbar-default .navbar-nav > .active > a{color:#E87E04}
+.navbar-default .navbar-collapse{background:#2c3e50}
+
+#about{text-align:center;margin-bottom:100px}
+#about h2{border-bottom:5px solid #E87E04;width:130px;margin:0 auto;margin-top:100px;font-size:30px}
+#about img{width:150px;height:150px;border-radius:50%;margin:0 auto;margin-top:100px}
+#about p{text-align:left; text-indent:2em;margin-top:40px;color:#787978;font-size:14px;padding:0 50px}
+
+#work {width:100%;padding:150px 0;background:url(../images/bg1.jpg) no-repeat center; background-attachment:fixed; background-size:cover;position:relative;margin:0 auto;text-align:center}
+#work .mo_work{position:absolute;top:0;left:0;width:100%;height:100%;background:#fff;opacity:0.6}
+#work .work_inner{margin-top:100px}
+#work h2{border-bottom:5px solid #E87E04;width:130px;margin:0 auto;margin-top:100px;font-size:30px}
+#work img{margin:0 auto;transition:transform 1s;}
+#work  img:hover{ transform:scale(1.3)}
+#work h5{color:#E87E04;margin-top:30px}
+#work p{color:#787978;margin-top:20px}
+
+#pro{width:90%;}
+#pro h2{border-bottom:5px solid #E87E04;width:130px;margin:0 auto;margin-top:100px;font-size:30px;text-align:center}
+#pro .pro_inner{margin-top:100px}
+#pro .pro_inner2{position:relative;padding:20px 20px;transition: transform 0.5s; }
+#pro .pro_inner2:hover{transform:scale(1.1)}
+#pro .pro_inner2 a{color:#fff; text-decoration:none}
+#pro .img_list{width:100%;margin:0 auto}
+.pro_inner3{width:100%;height:100%;position:absolute;top:0px;left:0px; background:#000; opacity:0.6;color:#fff;text-align:center;opacity:0;padding-top:30%}
+.pro_inner3 h5{margin-top:2vw;font-weight:600;}
+.pro_inner3 p{margin-top:20px;padding:0 40px}
+.pro_inner3 .se{width:2vw;height:30px;margin:0 auto}
+
+#tec {width:100%;padding:150px 0;background:url(../images/bg11.jpg) no-repeat center; background-attachment:fixed; background-size:cover;position:relative;margin:0 auto;text-align:center;margin-top:100px;}
+#tec .mo_tec{position:absolute;top:0;left:0;width:100%;height:100%;background:#fff;opacity:0.6}
+#tec .tec_inner{margin:100px 50px 0}
+#tec h2{border-bottom:5px solid #E87E04;width:130px;margin:0 auto;margin-top:100px;font-size:30px}
+#tec p{color:#2c3e50;text-align:left;font-weight:bold;}
+
+#experience {width:100%;margin:0 auto;text-align:center;}
+#experience .ex_inner{margin-top:100px;}
+#experience h2{border-bottom:5px solid #E87E04;width:130px;margin:0 auto;margin-top:100px;font-size:30px}
+.wrap{ width:200px;margin:0 auto;position:relative}
+.year{ margin-left:100px;  border-left:1px solid #ddd}
+.year h3{ width:150px; height:150px; background:#fff;border:1px solid #ddd; color:#787978; text-align:center; line-height:30px; font-size:16px; font-weight:bold;border-radius:50%; position:relative;left:-75px; margin-bottom:100px;padding-top:30px}
+.year .cont1{color:#787978;text-align:left;width:200px}
+.year .cont2{color:#787978;text-align:left;width:200px}
+.ex_inner .col-sm-6 cont2{position:absolute;top:258px;left:200px;color:#787978;text-align:left;width:200px}
+.year h5{color:#E87E04}
+.year h4{color:#2c3e50;font-weight:bold;font-size:16px}
+.year ol dl dd{padding:20px; border-radius:10px;}
+
+#contact {width:92%;padding:150px 0;background:url(../images/bg10.jpg) no-repeat center; background-attachment:fixed; background-size:cover;position:relative;margin:0 auto;text-align:center;margin-top:100px;}
+#contact .mo_cont{position:absolute;top:0;left:0;width:100%;height:100%;background:#fff;opacity:0.6}
+#contact .cont_inner{margin-top:100px;padding:0 50px}
+#contact h2{border-bottom:5px solid #E87E04;width:130px;margin:0 auto;margin-top:100px;font-size:30px}
