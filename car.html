@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset='utf-8'>
+  	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<!-- 1. 引入angular.js -->
+	<script type="text/javascript" src='angular.js'></script>
+	<style type="">
+		* {margin: 0; padding: 0;}
+		.tabbar {width: 100%; height: 64px; background: #eee; border-top: 1px solid #ccc; position: fixed; bottom: 0; left: 0; font-size: 12px; color: #999;}
+		img {width: 35px;}
+		.item {width: 25%; text-align: center; float: left;}
+		.green {color: green;}
+
+		.goods {width: 50%; float: left;}
+		.imgWrap, .detailWrap {border: 1px solid #ccc; padding: 10px 15px;}
+		.imgWrap img {width: 100%;}
+		.price {color: red;}
+		.addBtn {float: right; background: red; color: white; border-radius: 50%; border: none; width: 20px; height: 20px; outline: none;}
+		.leftDesBtn, .rightDesBtn {border: none; border-radius: 5px; padding: 8px; background: red; color: white; margin: 0 3px; outline: none;}
+		.buttonLine {height: 64px; clear: both;}
+		.top {padding: 20px; border-bottom: 1px solid #ccc; background: #eee;}
+		.shopListGoods { border-bottom: 1px solid #eee; padding: 10px;}
+		.shopListGoods img {float: left; width: 15%; margin-right: 10px;}
+		.shopListGoods div {font-size: 14px; color: #999;}
+	</style>
+</head>
+<body ng-app='myApp' ng-controller='myCtrl'>
+	<div class="pages">
+		<div class="page" ng-show='selected==0'>
+			<div class="goods" ng-repeat='item in arr track by $index'>
+				<div class="imgWrap">
+					<img ng-src="{{ item.myUrl }}"/>
+				</div>
+				<div class="detailWrap">
+					<p>{{ item.des }}</p>
+					<span class='price'>{{ item.price|currency:'￥' }}</span>
+					<button class='addBtn' ng-show='item.num==0' ng-click='addFn($index)'>+</button>
+					<p style='float: right;' ng-show='item.num!=0'><button class='leftDesBtn' ng-click='des($index)'>-</button>{{ item.num }}<button class='rightDesBtn' ng-click='add($index)'>+</button></p>
+				</div>
+			</div>
+			<div class="buttonLine"></div>
+		</div>
+
+		<div class="page" ng-show='selected==1'>
+		2222
+		</div>
+
+		<div class="page" ng-show='selected==2'>
+			<p class='top'>商品种类: {{ shopList.length }} 种; 总价: {{ counting()|currency:'￥ ' }}</p>
+			<div class="shopListGoods" ng-repeat='item in shopList'>
+				<img ng-src="{{ item.myUrl }}">
+				<div>
+					<p>{{ item.des }}</p>
+					<span class='price'>{{ item.price|currency:'￥ ' }}</span>
+					<p style='float: right;' ng-show='item.num!=0'><button class='leftDesBtn' ng-click='des($index)'>-</button>{{ item.num }}<button class='rightDesBtn' ng-click='add($index)'>+</button></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="page" ng-show='selected==3'>
+		4444444
+		</div>
+	</div>
+
+	<div class="tabbar">
+		<div class="item" ng-click='choose(0)'>
+			<img src="normal.png" ng-show='selected!=0'/>
+			<img src="active.png" ng-show='selected==0'/><br/>
+			<span ng-class='{green: selected==0}'>首页</span>
+		</div>
+		<div class="item" ng-click='choose(1)'>
+			<img src="normal.png" ng-show='selected!=1'/>
+
+			<img src="active.png" ng-show='selected==1'/><br/>
+			<span ng-class='{green: selected==1}'>微淘</span>
+		</div>
+		<div class="item" ng-click='choose(2)'>
+			<img src="normal.png" ng-show='selected!=2'/>
+
+			<img src="active.png" ng-show='selected==2'/><br/>
+			<span ng-class='{green: selected==2}'>购物车</span>
+		</div>
+		<div class="item" ng-click='choose(3)'>
+			<img src="normal.png" ng-show='selected!=3'/>
+
+			<img src="active.png" ng-show='selected==3'/><br/>
+			<span ng-class='{green: selected==3}'>个人中心</span>
+		</div>
+	</div>
+
+</body>
+</html>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl', function ($scope,$http) {
+		
+		$scope.selected = 0;
+
+		// 购物车数组
+		$scope.shopList = [];
+
+		$scope.choose = function (i) {
+			// body...
+			$scope.selected = i;
+
+			if (i==0) {
+				$scope.shopList = [];
+			}
+
+			// 点击购物车时,对所有商品的num进行查看,如果num不为0,那么该商品应该存在于购物车中
+			if (i==2){
+				$scope.arr.forEach(function (item) {
+					// body...
+					if (item.num) {
+						$scope.shopList.push(item);
+					}
+				});
+				console.log($scope.shopList);
+			}
+		}
+
+		$scope.arr = [
+			{
+				myUrl: '1.jpg',
+				des: '满减【三只松鼠_琥珀核桃仁165g】坚果特产休闲零食纸', 
+				price: 23,
+				num: 0
+			},
+			{
+				myUrl: '2.jpg', 
+				des: '旺旺旺仔牛奶原味245 ml× 8罐+苹果味245ml×4罐', 
+				price: 6,
+				num: 0
+			},
+			{
+				myUrl: '1.jpg',
+				des: '满减【三只松鼠_琥珀核桃仁165g】坚果特产休闲零食纸', 
+				price: 23,
+				num: 0
+			},
+			{
+				myUrl: '2.jpg', 
+				des: '旺旺旺仔牛奶原味245 ml× 8罐+苹果味245ml×4罐', 
+				price: 6,
+				num: 0
+			},
+			{
+				myUrl: '1.jpg',
+				des: '满减【三只松鼠_琥珀核桃仁165g】坚果特产休闲零食纸', 
+				price: 23,
+				num: 0
+			},
+			{
+				myUrl: '2.jpg', 
+				des: '旺旺旺仔牛奶原味245 ml× 8罐+苹果味245ml×4罐', 
+				price: 6,
+				num: 0
+			},
+			{
+				myUrl: '1.jpg',
+				des: '满减【三只松鼠_琥珀核桃仁165g】坚果特产休闲零食纸', 
+				price: 23,
+				num: 0
+			},
+			{
+				myUrl: '2.jpg', 
+				des: '旺旺旺仔牛奶原味245 ml× 8罐+苹果味245ml×4罐', 
+				price: 6,
+				num: 0
+			},
+			
+		];
+
+		$scope.addFn = function (index) {
+			// body...
+			// 点击加号,   加号隐藏; 显示 p 
+			//  看到加号时,  也就是商品的数量是 0
+			// 点击加号 商品数量 ++     1
+			$scope.arr[index].num++;
+		}
+
+		$scope.des = function (index) {
+			// body...
+			$scope.arr[index].num--;
+		}
+
+		$scope.add = function (index) {
+			// body...
+			$scope.arr[index].num++;
+		}
+
+		$scope.counting = function () {
+			// body...
+			// 单价* 数量  + + + 
+			$scope.totalPrice = 0;
+			$scope.shopList.forEach(function (item) {
+				// body...
+				$scope.totalPrice += item.num * item.price;
+			});
+
+			return $scope.totalPrice;
+		}
+
+
+	});
+
+
+</script>
